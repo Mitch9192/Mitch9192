@@ -91,20 +91,38 @@ public:
     Settings settings() const;
 
 private slots:
-    void showPortInfo(int idx);
-    void apply();
-    void checkCustomBaudRatePolicy(int idx);
-    void checkCustomDevicePathPolicy(int idx);
+    void _slot_showPortInfo(int idx);
+    void _slot_apply();
+    void _slot_checkCustomBaudRatePolicy(int idx);
+    void _slot_checkCustomDevicePathPolicy(int idx);
 
 private:
-    void fillPortsParameters();
-    void fillPortsInfo();
-    void updateSettings();
+    void _initialConnections();
+    void _fillPortsParameters();
+    void _fillPortsInfo();
+    void _updateSettings();
+
+    void _readSettings();
+    void _writeSettings();
+    void _applySavedSettings();
 
 private:
-    Ui::SettingsDialog *m_ui = nullptr;
-    Settings m_currentSettings;
-    QIntValidator *m_intValidator = nullptr;
+    static const QString SETTINGS_ORG;
+    static const QString SETTINGS_APP;
+    static const QString SETTINGS_CONNECTION;
+    static const QString SETTINGS_SERIAL_PORT;
+    static const QString SETTINGS_BAUD;
+    static const QString SETTINGS_DATA_BITS;
+    static const QString SETTINGS_PARITY;
+    static const QString SETTINGS_STOP_BITS;
+    static const QString SETTINGS_FLOW_CONTROL;
+    static const QString SETTINGS_LOCAL_ECHO;
+
+
+    Ui::SettingsDialog *_ui = nullptr;
+    Settings _currentSettings;
+    Settings _savedSettings;
+    QIntValidator *_intValidator = nullptr;
 };
 
 #endif // SETTINGSDIALOG_H
