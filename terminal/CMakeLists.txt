@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16.0)
 
-set(CMAKE_PREFIX_PATH /Users/robertneely/Qt/5.12.8)
+# It is typically better to pass this in.  "-DCMAKE_PREFIX_PATH=..."
+# set(CMAKE_PREFIX_PATH ~/Qt/5.12.8/clang_64)
 
 project(terminal VERSION 1.0.0 LANGUAGES CXX)
 
